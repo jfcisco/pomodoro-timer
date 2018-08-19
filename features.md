@@ -15,8 +15,10 @@ IDEAS:
 
 TODO:
 1. Refactor the script file (i.e. use JS modules).
+2. Store tasks to localStorage.
 
 DOING:
-1. Write to-do list at the bottom of the app.
+
 
 DONE/FEATURE LIST:
+1. Write to-do list at the bottom of the app.
