@@ -11,10 +11,6 @@ var intervalId;
 $(document).ready(function() {
   drawtime();
 
-  // TODO: DEV-only, remove when localStorage is okay
-  listOfTasks.push("Task 1", "Task 2");
-  updateListDom();
-
   $("#start").click(function() {
     if (!timerstarted) {
       timerstarted = true;
