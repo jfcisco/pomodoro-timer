@@ -14,11 +14,11 @@ IDEAS:
 1. Change the background of the app to fit the current "phase" of the Pomodoro
 
 TODO:
-1. Refactor the script file (i.e. use JS modules).
-2. Store tasks to localStorage.
+1. Store tasks to localStorage.
 
 DOING:
-
+1. Refactor timer code.
 
 DONE/FEATURE LIST:
-1. Write to-do list at the bottom of the app.
+1. Write to-do list at the bottom of the app (Feature 1).
+2. Pomodoro alarms after 25 minutes (Feature 2 & 3).
