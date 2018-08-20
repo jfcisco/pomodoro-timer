@@ -1,2 +1,3 @@
 *.bat
 *.log
+node_modules/
