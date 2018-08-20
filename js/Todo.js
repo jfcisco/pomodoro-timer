@@ -6,7 +6,7 @@ var Todo = (function() {
 
   function cacheDom() {
     DOM.taskList = $("#task-list");
-    DOM.newTask = $("new-task");
+    DOM.newTask = $("#new-task");
   }
 
   function bindEvents() {
@@ -33,6 +33,20 @@ var Todo = (function() {
       }
     });
 
+    DOM.newTask.submit(function(e) {
+      e.preventDefault();
+      var taskName = $("input[name='new-task']").val();
+      
+      // Clear input on submit
+      $("input[name='new-task']").val("");
+      
+      // Add task list item to list of tasks
+      listOfTasks.push(taskName);
+    
+      // Update DOM
+      render();
+    });
+
   }
   
   /** Update the unordered list of tasks on the DOM to reflect the state. */
@@ -51,6 +65,12 @@ var Todo = (function() {
     });
   }
 
+  function test() {
+      // Dev-only, remove when localStorage is okay
+      listOfTasks.push("Task 1", "Task 2");
+      render();
+  }
+
   /* Public Methods and Properties */
   var listOfTasks = [];
   var selectedTask = "";
@@ -58,6 +78,7 @@ var Todo = (function() {
   function init() {
     cacheDom();
     bindEvents();
+    test();
   }
 
   return {
@@ -66,17 +87,3 @@ var Todo = (function() {
     selectedTask
   };
 })();
-
-$("#new-task").submit(function(e) {
-  e.preventDefault();
-  var taskName = $("input[name='new-task']").val();
-  
-  // Clear input on submit
-  $("input[name='new-task']").val("");
-  
-  // Add task list item to list of tasks
-  listOfTasks.push(taskName);
-
-  // Update DOM
-  render();
-});
