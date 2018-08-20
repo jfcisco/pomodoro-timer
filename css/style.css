@@ -49,3 +49,8 @@ button#start {
   background-color: #923027;
   color: white;
 }
+
+#task-list {
+  text-align: left;
+  list-style-type: none;
+}
