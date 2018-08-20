@@ -4,8 +4,7 @@ var minutes = 25;
 var seconds = 0;
 var timerStarted = false;
 var intervalId;
-var listOfTasks = [];
-var selectedTask = "";
+
 
 // EVENT LISTENERS:
 
@@ -35,43 +34,7 @@ $(document).ready(function() {
     drawtime();
   });
   
-  // Using event delegation to make delete button work.
-  $("#task-list").on("click", function(e) {
-      
-    switch($(e.target).prop("tagName").toLowerCase()) {
-      case "button":
-        // Get index of the tasks to be deleted
-        var taskIndexToDelete = $(e.target).parent().data("task-id");
-
-        // Filter out the task from the listOfTasks
-        listOfTasks = listOfTasks.filter(function(task, index) {
-          return index !== taskIndexToDelete;
-        });
-
-        updateListDom();
-        break;
-
-      case "label":
-        // Set the selectedTask variable to the currently selected task
-        selectedTask = $(e.target).text();
-        break;
-    }
-  });
-
-  $("#new-task").submit(function(e) {
-    e.preventDefault();
-    var taskName = $("input[name='new-task']").val();
-    
-    // Clear input on submit
-    $("input[name='new-task']").val("");
-    
-    // Add task list item to list of tasks
-    listOfTasks.push(taskName);
-
-    // Update DOM
-    updateListDom();
-  });
-
+  Todo.init();
 });
 
 // HELPFUL FUNCTIONS:
@@ -91,23 +54,6 @@ function pomodoro() {
   drawtime();
 }
 
- /** Update the unordered list of tasks on the DOM to reflect the state. */
-function updateListDom() {
-  var domTaskList = $("#task-list");
-
-  // Delete the contents of the unordered list
-  domTaskList.empty();
-
-  // Replace with new children
-  listOfTasks.forEach(function(taskName, i) {
-    domTaskList.append($(`
-    <li data-task-id=${i}> 
-      <label><input type="radio" name="task">${taskName}</label>
-      <button type="button" class="delete-button">Delete</button>
-    </li>
-    `));
-  });
-}
 
 function drawtime() {
   var strminutes = minutes.toString();
