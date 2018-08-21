@@ -15,8 +15,12 @@ var PEvents = (function() {
 
   var pomodorosDone = 0;
 
+  /** Returns the next timer type given the previous timer type
+   *  according to the Pomodoro technique.
+   */
   function nextTimer(previousTimer) {
-    if (previousTimer === Timers.short_break || previousTimer === Timers.long_break) {
+    if (previousTimer === Timers.short_break || 
+          previousTimer === Timers.long_break) {
       return Timers.pomodoro;
     }
     else if (pomodorosDone < 4) { // It is implied that beyond here, previousTimer is pomodoro
@@ -31,6 +35,7 @@ var PEvents = (function() {
     }
   }
 
+  /** Called whenever a timer is finished counting down. */
   function timerDone(type) {
     switch(type) {
       case "pomodoro":
