@@ -74,6 +74,9 @@ var PTimer = (function() {
     render();
   }
 
+  /** Load the next type of timer according to the Pomodoro technique,
+   *  and change the minutes and seconds variables to the appropriate amount.
+   */
   function loadTimer() {
     currentTimerType = PEvents.nextTimer(currentTimerType);
     
@@ -98,6 +101,7 @@ var PTimer = (function() {
   }
 
   function startTimer() {
+    
     intervalId = setInterval(countDown, 1000);
   }
 
