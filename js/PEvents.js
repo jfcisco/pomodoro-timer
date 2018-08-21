@@ -37,14 +37,10 @@ var PEvents = (function() {
 
   /** Called whenever a timer is finished counting down. */
   function timerDone(type) {
-    switch(type) {
-      case "pomodoro":
-        // Increment pomodoro and load break timer next
-        pomodorosDone++;
-        break;
+    // type is the timer type of the one that just finished.
+    if (type === Timers.pomodoro) {
+      pomodorosDone++;
     }
-
-    alert("Done!");
   } 
 
   return {

@@ -11,7 +11,7 @@ var PTimer = (function() {
   var DOM = {};
 
   /* Private */
-  var minutes = 25;
+  var minutes = 0;
   var seconds = 0;
   var timerStarted = false;
   var currentTimerType = PEvents.Timers.short_break;
@@ -67,8 +67,9 @@ var PTimer = (function() {
     }
     else if (seconds === -1 && minutes === 0) {
       // Timer is done. Call relevant functions
-      // stopTimer(true);
+      stopTimer();
       PEvents.timerDone(currentTimerType);
+      loadTimer();
     }
   
     render();
@@ -100,23 +101,18 @@ var PTimer = (function() {
     render();
   }
 
+  // TODO: Merge startTimer and stopTimer
   function startTimer() {
     
     intervalId = setInterval(countDown, 1000);
   }
 
-  function stopTimer(displayAlert) {
+  function stopTimer() {
     if (timerStarted) {
       timerStarted = false;
     }
     
     clearInterval(intervalId);
-
-    if (displayAlert) {
-      alert("Times up!");
-      minutes = 25;
-      seconds = 0;
-    }
   }
 
   /* Public */
