@@ -49,3 +49,5 @@ var PEvents = (function() {
     nextTimer
   }
 })();
+
+export default PEvents;

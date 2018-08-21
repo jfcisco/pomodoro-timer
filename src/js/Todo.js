@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 var Todo = (function() {
   // Mapping for "cached" DOM elements
   var DOM = {};
@@ -87,3 +89,5 @@ var Todo = (function() {
     selectedTask
   };
 })();
+
+export default Todo;
