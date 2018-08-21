@@ -11,14 +11,15 @@ I should be able to do all/most of the features here in the app.
 6. Every 4 pomodoros, take a longer break.
 
 IDEAS: 
-1. Change the background of the app to fit the current "phase" of the Pomodoro
+
 2. Store tasks to localStorage.
 
 TODO:
 1. Implement feature 4
 
 DOING:
-
+1. Change the background of the app to fit the current "phase" of the Pomodoro
+  1.1. Red for work, blue for relaxing
 
 DONE/FEATURE LIST:
 1. Write to-do list at the bottom of the app (Feature 1).

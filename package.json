@@ -1,0 +1,19 @@
+{
+  "name": "pomodoro-timer-2",
+  "version": "1.0.0",
+  "description": "A web application implementation of Francesco Cirillo's productivity technique.",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.16.5"
+  },
+  "scripts": {
+	"start": "webpack src/index.js dist/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "JF <jasper.francisco@gmail.com>",
+  "license": "ISC"
+}

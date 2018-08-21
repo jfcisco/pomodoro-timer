@@ -4,9 +4,10 @@ html {
 }
 
 body {
-  background-color: #A02100;
+  background-color: #96d2ed;
   font-family: "Open Sans", Arial, sans serif;
 }
+
 #app {
   max-width: 600px;
   width: auto;
@@ -14,9 +15,16 @@ body {
   border-radius: 30px;
   padding: 25px;
   margin: 50px auto;
+  text-align: center;
 }
 
+.working {
+  background-color: #A02100;
+}
 
+.break {
+  background-color: #96d2ed;
+}
 
 h1 {
   margin: 0 0 20px 0;
