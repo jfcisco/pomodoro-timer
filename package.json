@@ -10,7 +10,7 @@
     "webpack": "^4.16.5"
   },
   "scripts": {
-	"start": "webpack src/index.js dist/index.js",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
