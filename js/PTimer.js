@@ -4,18 +4,19 @@
 
 /* 
   The PTimer should only be concerned about timer functions.
-  Thus, it should depend on PEvents to know which type of
-  timer it needs to display.
+  Thus, it should depend on PEvents to handle the flows of
+  the Pomodoro technique.
 */
 var PTimer = (function() {
   var DOM = {};
-  
-  var minutes = 25;
-  var seconds = 0;
-  var timerStarted = false; 
-  var intervalId = null;
 
   /* Private */
+  var minutes = 25;
+  var seconds = 0;
+  var timerStarted = false;
+  var currentTimerType = PEvents.Timers.short_break;
+  var intervalId = null;
+  
   function cacheDom() {
     DOM.time = $("#time");
     DOM.start = $("#start");
@@ -25,10 +26,7 @@ var PTimer = (function() {
 
   function bindEvents() {
     DOM.start.click(function() {
-      if (!timerStarted) {
-        timerStarted = true;
-        intervalId = setInterval(countDown, 1000);
-      }
+      startTimer();
     });
     
     DOM.stop.click(function() {
@@ -67,18 +65,50 @@ var PTimer = (function() {
       seconds += 60;
       minutes -= 1;
     }
-  
-    if (seconds === -1 && minutes === 0) {
-      stopTimer(true);
+    else if (seconds === -1 && minutes === 0) {
+      // Timer is done. Call relevant functions
+      // stopTimer(true);
+      PEvents.timerDone(currentTimerType);
     }
   
     render();
   }
 
+  function loadTimer() {
+    currentTimerType = PEvents.nextTimer(currentTimerType);
+    
+    switch (currentTimerType) {
+      case PEvents.Timers.pomodoro:
+        minutes = 25;
+        seconds = 0;
+        break;
+      
+      case PEvents.Timers.short_break:
+        minutes = 5;
+        seconds = 0;
+        break;
+
+      case PEvents.Timers.long_break:
+        minutes = 25;
+        seconds = 0;
+        break;
+    }
+
+    render();
+  }
+
+  function startTimer() {
+    intervalId = setInterval(countDown, 1000);
+  }
+
   function stopTimer(displayAlert) {
-    settings.timerStarted = false;
+    if (timerStarted) {
+      timerStarted = false;
+    }
+    
     clearInterval(intervalId);
-    if (alertbool) {
+
+    if (displayAlert) {
       alert("Times up!");
       minutes = 25;
       seconds = 0;
@@ -90,11 +120,15 @@ var PTimer = (function() {
   function init() {
     cacheDom();
     bindEvents();
+
+    loadTimer();
     render();
   }
   
   return {
-    init
+    init,
+    startTimer,
+    stopTimer
   };
 
 })();
