@@ -1,17 +1,19 @@
-html, body {
-  background-color: #A02100;
+html {
   margin: 0;
   padding: 0;
 }
 
 body {
+  background-color: #A02100;
+  font-family: "Open Sans", Arial, sans serif;
+}
+#app {
   max-width: 600px;
-  margin: 50px auto;
-  padding: 25px;
-  text-align: center;
+  width: auto;
   background-color: #EDD895;
   border-radius: 30px;
-  font-family: "Open Sans", Arial, sans serif;
+  padding: 25px;
+  margin: 50px auto;
 }
 
 h1, p, button {
