@@ -22,27 +22,11 @@ var PTimer = (function() {
   
   function cacheDom() {
     DOM.time = $("#time");
-    DOM.start = $("#start");
-    DOM.stop = $("#stop");
-    DOM.reset = $("#reset");
+    DOM.app = $("#app");
   }
 
   function bindEvents() {
-    DOM.start.click(function() {
-      startTimer();
-    });
-    
-    DOM.stop.click(function() {
-      stopTimer(false);
-    });
-    
-    DOM.reset.click(function() {
-      stopTimer(false);
-      minutes = 25;
-      seconds = 0;
-      
-      render();
-    });
+    DOM.app.click(toggleTimer);
   }
 
   function render() {
@@ -56,7 +40,20 @@ var PTimer = (function() {
     if (seconds < 10) {
       secondsStr = "0" + secondsStr;
     }
-  
+    
+    // Change class of the app depending on currentTimerType
+    switch(currentTimerType) {
+      case PEvents.Timers.pomodoro:
+        DOM.app.attr("class", "working");
+        break;
+      case PEvents.Timers.short_break:
+        DOM.app.attr("class", "short-break");
+        break;
+      case PEvents.Timers.long_break:
+        DOM.app.attr("class", "long-break");
+        break;
+    }
+
     DOM.time.text(minutesStr + ":" + secondsStr);
   }
 
@@ -104,9 +101,16 @@ var PTimer = (function() {
     render();
   }
 
-  // TODO: Merge startTimer and stopTimer
+  /** Toggles timer, i.e. it starts when the timer is stopped and stops when started */
+  function toggleTimer() {
+    !timerStarted ? startTimer() : stopTimer();
+  }
+
   function startTimer() {
-    
+    if (!timerStarted) {
+      timerStarted = true;
+    }
+
     intervalId = setInterval(countDown, 1000);
   }
 
