@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import PEvents from './PEvents';
+
 /** This module controls the countdown timer of the Pomodoro. 
  * When the timer finishes, it calls a method for the 
  * PEvents module to process. */
@@ -132,3 +135,5 @@ var PTimer = (function() {
   };
 
 })();
+
+export default PTimer;
