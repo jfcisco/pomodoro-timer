@@ -14,43 +14,31 @@ html, body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
 }
 
 .working {
   background-color: #F2C94C;
+  color: #333;
 }
 
-.break {
-  background-color: #96d2ed;
+.short-break {
+  background-color: #2D9CDB;
+  color: #F2F2F2;
+}
+
+.long-break {
+  background-color: #27AE60;
+  color: #F2F2F2;
 }
 
 h1 {
   margin: 0 0 20px 0;
   font-size: 2em;
   font-weight: bold;
-  color: #333;
 }
 
 #time { 
   display: inline-block;
   font-size: 8em;
-  color: #333;
-}
-
-button {
-  margin: 10px 40px;
-  padding: 20px 20px;
-  border-radius: 10px;
-  border: 1px solid transparent;
-  box-shadow: 2px 2px 10px #555;
-}
-
-button#start {
-  background-color: #923027;
-  color: white;
-}
-
-#task-list {
-  text-align: left;
-  list-style-type: none;
 }

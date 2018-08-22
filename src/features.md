@@ -18,11 +18,12 @@ TODO:
 1. Implement feature 4
 
 DOING:
-1. Change the background of the app to fit the current "phase" of the Pomodoro
-  1.1. Red for work, blue for relaxing
+
 
 DONE/FEATURE LIST:
 1. Write to-do list at the bottom of the app (Feature 1).
 2. Pomodoro alarms after 25 minutes (Feature 2 & 3).
   2.1. Timer code now in modules.
 3. Short and long breaks (Feature 5 & 6)
+4. Change the background of the app to fit the current "phase" of the Pomodoro
+  4.1. Red for work, blue for relaxing
