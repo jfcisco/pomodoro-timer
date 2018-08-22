@@ -1,25 +1,23 @@
-html {
+html, body{
   margin: 0;
   padding: 0;
-}
-
-body {
-  background-color: #A02100;
   font-family: "Open Sans", Arial, sans serif;
 }
 
 #app {
-  max-width: 600px;
-  width: auto;
-  background-color: #EDD895;
-  border-radius: 30px;
-  padding: 25px;
-  margin: 50px auto;
-  text-align: center;
+  /* Take up whole screen */
+  width: 100%;
+  height: 100vh;
+
+  /* Vertical align elements */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .working {
-  background-color: #A02100;
+  background-color: #F2C94C;
 }
 
 .break {
@@ -28,19 +26,15 @@ body {
 
 h1 {
   margin: 0 0 20px 0;
-  font-size: 50px;
+  font-size: 2em;
   font-weight: bold;
-  color: #542416;
+  color: #333;
 }
 
 #time { 
   display: inline-block;
-  font-size: 45px;
-  color: #364C1E;
-  padding: 10px 20px;
-  margin: 0 auto 20px;
-  border: 2px dotted;
-  border-radius: 10px;
+  font-size: 8em;
+  color: #333;
 }
 
 button {
