@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import PEvents from './PEvents';
 
 /** This module controls the countdown timer of the Pomodoro. 
@@ -21,12 +20,12 @@ var PTimer = (function() {
   var intervalId = null;
   
   function cacheDom() {
-    DOM.time = $("#time");
-    DOM.app = $("#app");
+    DOM.time = document.querySelector("#time");
+    DOM.app = document.querySelector("#app");
   }
 
   function bindEvents() {
-    DOM.app.click(toggleTimer);
+    DOM.app.addEventListener('click', toggleTimer);
   }
 
   function render() {
@@ -44,17 +43,17 @@ var PTimer = (function() {
     // Change class of the app depending on currentTimerType
     switch(currentTimerType) {
       case PEvents.Timers.pomodoro:
-        DOM.app.attr("class", "working");
+        DOM.app.setAttribute("class", "working");
         break;
       case PEvents.Timers.short_break:
-        DOM.app.attr("class", "short-break");
+        DOM.app.setAttribute("class", "short-break");
         break;
       case PEvents.Timers.long_break:
-        DOM.app.attr("class", "long-break");
+        DOM.app.setAttribute("class", "long-break");
         break;
     }
 
-    DOM.time.text(minutesStr + ":" + secondsStr);
+    DOM.time.textContent = minutesStr + ":" + secondsStr;
   }
 
   /** Method to handle the countdown of the timer */
