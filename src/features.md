@@ -18,7 +18,7 @@ TODO:
 1. Implement feature 4
 
 DOING:
-
+1. Use custom events to make flow of data easier.
 
 DONE/FEATURE LIST:
 1. Write to-do list at the bottom of the app (Feature 1).
