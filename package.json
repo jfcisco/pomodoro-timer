@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "A web application implementation of Francesco Cirillo's productivity technique.",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.24.6",
     "browser-sync-webpack-plugin": "^2.2.2",
+    "file-loader": "^2.0.0",
     "webpack": "^4.16.5",
     "webpack-serve": "^2.0.2"
   },
