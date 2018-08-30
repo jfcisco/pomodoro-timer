@@ -10,12 +10,11 @@ I should be able to do all/most of the features here in the app.
 5. Take a short break on a paper'
 6. Every 4 pomodoros, take a longer break.
 
-IDEAS: 
-
-2. Store tasks to localStorage.
-
 TODO:
 1. Implement feature 4
+2. Store tasks to localStorage.
+3. Use custom events to make flow of data easier.
+4. Write guide for new users.
 
 DOING:
 
