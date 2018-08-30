@@ -7,6 +7,21 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js'
   },
+  module: {
+	  rules: [
+	  {
+		test: /\.(ico|png)$/,
+		use: [
+		{
+			loader: "file-loader",
+			options: {
+				name: "[name].[ext]"
+			}
+		}
+		]
+	  }
+	]
+  },
   plugins: [
     new BrowserSyncPlugin({
       host: 'localhost',
