@@ -1,16 +1,17 @@
 const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+	entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js'
-  },
+	},
+	devtool: 'source-map',
   module: {
 	  rules: [
 	  {
-		test: /\.(ico|png)$/,
+		test: /\.(ico|png|css)$/,
 		use: [
 		{
 			loader: "file-loader",
@@ -23,10 +24,8 @@ module.exports = {
 	]
   },
   plugins: [
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: 3000,
-      server: "dist"
-    })
+    new HtmlWebpackPlugin({
+		template: 'src/index.html',
+	})
   ]
 }
