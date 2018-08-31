@@ -13,6 +13,6 @@ require('./style.css');
 
 $(document).ready(function() {
   Timer.init();
-  Events.init();
-  Todo.init();
+  Pomodoro.init();
+  //Todo.init();
 });
